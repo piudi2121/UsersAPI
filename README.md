@@ -23,8 +23,6 @@ Projeto focado em estudo de integração entre API e banco de dados.
 
 ## Como rodar o projeto
 
-## Como rodar o projeto
-
 1. Clone o repositório
 2. Entre na pasta do projeto
 3. Instale os pacotes necessários:
