@@ -7,8 +7,10 @@ from dotenv import load_dotenv
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from models.token import TokenData
-from main import get_db, get_user_by_email, User
+from auth.models.token import TokenData
+from user.core.database import get_db
+from user.models.user_model import User
+from user.repository.user_repository import get_user_by_email
 
 load_dotenv()
 

@@ -1,5 +1,6 @@
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
+from auth.utils.auth_utils import get_password_hash
 from user.models.user_model import User
 
 def get_user(db: Session, user_id: int):
@@ -8,7 +9,7 @@ def get_user(db: Session, user_id: int):
 def create_user(db: Session, name: str, email: str, role: str, password: str):
     if db.query(User).filter(User.email == email).first():
         return
-    new_user = User(name=name, email=email, role=role, password=password)
+    new_user = User(name=name, email=email, role=role, password=get_password_hash(password)) 
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
@@ -34,3 +35,6 @@ def delete_user(db: Session, user_id: int):
     db.delete(db_user)
     db.commit()
     return {"message" : "User deleted..."}
+
+def get_user_by_email(db: Session, email: str):
+    return db.query(User).filter(User.email == email).first()

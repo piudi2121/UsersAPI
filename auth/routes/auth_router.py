@@ -3,9 +3,9 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
-from main import get_db
+from user.core.database import get_db
 from auth.models.token import Token
-from auth.services.auth_service import authenticate_user, create_access_token
+from auth.services.auth_services import authenticate_user, create_access_token
 
 auth_router = APIRouter(
     prefix="/api/auth",
