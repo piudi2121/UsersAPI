@@ -3,3 +3,5 @@ __pycache__/
 
 # SQLite
 *.db
+
+*.env
