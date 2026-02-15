@@ -77,7 +77,7 @@ uvicorn main:app --reload
 
 ### 🔐 Autenticação
 
-* POST `/auth` — realiza autenticação e retorna JWT
+* POST `/api/auth/token` — realiza autenticação e retorna JWT
 
 ### 👤 Usuários (rotas protegidas)
 
